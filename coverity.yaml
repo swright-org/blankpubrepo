@@ -1,0 +1,28 @@
+capture:
+  build:
+    clean-command: msbuild MyApp.sln /t:Clean
+    build-command: msbuild MyApp.sln /t:Build
+  compiler-configuration:
+    cov-configure:
+    - - --java
+      - --xml-option=skip_file:MyApp.Tests
+    - - --gcc
+      - --xml-option=skip_file:MyApp.Tests
+    - - --msvc
+      - --xml-option=skip_file:MyApp.Tests
+    - - --cs
+      - --xml-option=skip_file:MyApp.Tests
+    - - --go
+      - --xml-option=skip_file:MyApp.Tests
+    - - --vb
+      - --xml-option=skip_file:MyApp.Tests
+    - - --clang
+      - --xml-option=skip_file:MyApp.Tests
+    - - --dart
+      - --xml-option=skip_file:MyApp.Tests
+    - - --kotlin
+      - --xml-option=skip_file:MyApp.Tests
+  files:
+    exclude-regex: (packages|test|env\\/qa\\/.*)|(packages|test|env\\/qa\\/.*)
+analyze:
+  cov-analyze-args: []
